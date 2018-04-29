@@ -1,1 +1,4 @@
 *.class
+/Client/HangmanGame
+/Server/HangmanGame
+/Server/orb.db

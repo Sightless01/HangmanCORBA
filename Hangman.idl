@@ -1,0 +1,11 @@
+module HangmanGame
+{
+  interface Hangman
+  {
+    string startGame(in string name);
+    long getCurrentLife(in string name);
+    boolean letterGuess(in string name, in char letter);
+    string newGame(in string name);
+    string endGame(in string name);
+  };
+};
