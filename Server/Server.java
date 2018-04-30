@@ -17,16 +17,19 @@ public class Server {
 			rootpoa.the_POAManager().activate();
 			HangmanImpl converter = new HangmanImpl();
 			org.omg.CORBA.Object service_ref =  rootpoa.servant_to_reference(converter);
-        	Hangman service_href= HangmanHelper.narrow(service_ref);
-        	org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
-        	NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-        	NameComponent nc = new NameComponent(name_service, "");
-      		NameComponent path[] = {nc};
-     		ncRef.rebind(path, service_href);
+    	Hangman service_href= HangmanHelper.narrow(service_ref);
+    	org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
+    	NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+    	NameComponent nc = new NameComponent(name_service, "");
+  		NameComponent path[] = {nc};
+   		ncRef.rebind(path, service_href);
 
-     		System.out.println("The Server is now running!");
-     		Scanner kbd = new Scanner(System.in);
-     		kbd.nextLine();
+   		System.out.println("The Server is now running!");
+   		Scanner kbd = new Scanner(System.in);
+
+			while(true) {
+   			kbd.nextLine();
+			}
 
 		} catch(Exception e) {
 			e.printStackTrace();
