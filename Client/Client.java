@@ -25,17 +25,9 @@ public class Client {
         System.out.print("Enter your name: ");
         name = kbd.nextLine();
         word = hangman.startGame(name);
-        System.out.println(word);
       } while(word.equals("Player Already exists."));
 
       while(true) {
-        String key = "";
-
-        for(int i = 0; i < word.length(); i++) {
-          key += (word.charAt(i) + " ");
-        }
-
-        System.out.println(key);
 
         String line = "";
 
@@ -74,7 +66,7 @@ public class Client {
             System.out.println("Wrong!");
           }
           System.out.println("Remaining life: " + hangman.getCurrentLife(name));
-        } while(hangman.getCurrentLife(name) != 0 && !key.equals(line));
+        } while(hangman.getCurrentLife(name) != 0 && !hangman.checkKey(name, line));
 
         if(hangman.getCurrentLife(name) == 0) {
           System.out.println("Do you still want to play?(y/n): ");

@@ -52,6 +52,7 @@ public class HangmanImpl extends HangmanPOA {
       getPlayerByName(name).reset();
       return word;
     }
+	System.out.println(word);
     return word;
   }
 
@@ -59,6 +60,10 @@ public class HangmanImpl extends HangmanPOA {
   public String endGame(String name) {
     players.remove(getPlayerByName(name));
     return "Thank You for Playing the game!";
+  }
+
+  public boolean checkKey(String name, String currentKey) {
+    return getPlayerByName(name).key.equals(currentKey);
   }
 
   private Player getPlayerByName(String name) {

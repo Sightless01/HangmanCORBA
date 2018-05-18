@@ -6,6 +6,7 @@ public class Player implements Serializable {
   public ArrayList<String> words;
   public String playingWord;
   public int life;
+  public String key;
 
   public Player(String name) {
     this.name = name;
@@ -15,6 +16,7 @@ public class Player implements Serializable {
 
   public void SetPlayingWord(String word) {
     playingWord = word;
+    createKey(word);
   }
 
   public String getPlayingWord() {
@@ -43,5 +45,12 @@ public class Player implements Serializable {
     return bool;
   }
 
+  private void createKey(String word) {
+    String tempKey = "";
+    for(int i = 0; i < word.length(); i++) {
+      tempKey += (word.charAt(i)+" ");
+    }
+    key = tempKey;
+  }
 
 }
